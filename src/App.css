@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container{ 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#f3f3f7;
+}
+
+.login-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-left: 140px;
+  max-height: 100%;
+}
+
+.login-left > img {
+  width: 206px;
+  height: 76px;
+  margin: 40px 140px 80px 0;
+}
+
+.login-left > h1 {
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 54px;
+  width: 365px;
+  color: #1E1E1F;
+  margin-bottom: 30px;
+}
+
+.login-area{
+  display: flex;
+  flex-direction: column;
+  width: 365px;
+  gap: 1rem;
+}
+
+.login-area > input {
+  height: 60px;
+  border-radius: 8px;
+  color: #7D7E80;
+  border: 1px solid #7D7E80;
+  list-style: none;
+  font-family: 'Poppins';
+  padding: 20px;
+  font-size: 12px;
+}
+
+.login-area  button {
+  height: 60px;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Poppins';
+  background-color: #FFCB05;
+  color: #1E1E1F;
+  font-size: 16px;
+  font-weight: 500;
+  align-items: center;
+  margin-top: 30px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.login-img {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.login-img > img {
+  width: 100%;
+  height: 100vh;
+}
+
+@media only screen and (max-width: 1500px) {
+    .login-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-img > img {
+      width: 700px;
+      height: 100vh;
+    }
+}
+
+
+@media only screen and (max-width: 1195px) {
+  .login-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-img > img {
+   display: none;
+  }
+}
+
+.error {
+  display: flex;
+  color: #FF3326;
+  font-family: 'Poppins';
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  border-radius: 8px;
+}

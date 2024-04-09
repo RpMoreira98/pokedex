@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+  background-color: #F5F7FA;
+  margin-bottom: 20px;
+}
+.card-pokemon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.buttons-types {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1440px;
+  gap: 0.5rem;
+  margin-top: 20px;
+}
+
+.buttons-types > button {
+  font-family: 'Poppins';
+  width: 145px;
+  padding: 10px;
+  border: 1px solid #6B6868;
+  border-radius: 8px;
+  color: #6B6868;
+  cursor: pointer;
+  &[data-active = "true"] {
+    background-color: #FFCB05;
+    color: #000;
+    border: 1px solid #FFCB05;
+  }
+}
+
+.card-information {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin: 10px 300px 30px 350px;
+}
+
+.card-container{
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  background-color: #F5F7FA;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 236px;
+  width: 165px;
+  background-color: #fff;
+  padding: 7px;
+  border-radius: 8px;
+}
+
+.heart-pokemon{
+  display: flex;
+  justify-content: flex-end;
+  background-color: transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+.div-img{
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-img > img {
+  height: 60px;
+  width: 56px;
+  background-color: transparent;
+  user-select: none;
+}
+
+.pokemon-nome{
+  background-color: transparent;
+  font-family: 'Poppins';
+  line-height: 27px;
+  font-size: 18px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.id-pokemon {
+  background-color: transparent;
+  font-family: 'Poppins';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.5px;
+  color: #8E8787;
+  user-select: none;
+}
+
+.card > ul {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  list-style-type: none;
+  background-color: transparent;
+}
+
+.card > ul > li {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: 'Poppins';
+  font-size: 14px;
+}
+
+
+
+.button-pokemon {
+  margin-top: 5px;
+  padding: 5px;
+  background-color: #FFCB05;
+  border: none;
+  border-radius: 5px;
+  color: #343232;
+  font-family: 'Poppins';
+  align-items: center;
+  font-weight: 500;
+  line-height: 15px;
+  cursor: pointer;
+}
+
+.button-pokemon:hover{
+  background-color: #b89300;
+}
