@@ -7,20 +7,18 @@ export const Heart = ({ id }: { id: string }) => {
   const isFavorites = favorites.includes(id);
   const [heart, setHeart] = useState(isFavorites);
   const handleHeartClick = () => {
-    setFavorites((state) => {
-      if (!id) {
-        return state;
-      }
-      const index = state.findIndex((item) => item === id);
-      if (index === -1) {
-        state.push(id);
-        setHeart(true);
-      } else {
-        state.splice(index, 1);
-        setHeart(false);
-      }
-      return state;
-    });
+    if (!id) {
+      return;
+    }
+    const index = favorites.findIndex((item) => item === id);
+    if (index === -1) {
+      setFavorites([...favorites, id]);
+      setHeart(true);
+    } else {
+      const newFavorites = favorites.filter((item) => item !== id);
+      setFavorites(newFavorites);
+      setHeart(false);
+    }
   };
   return (
     <div onClick={handleHeartClick} className="heart-pokemon">

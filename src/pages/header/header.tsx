@@ -1,13 +1,19 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import "./header.css";
 import { RxExit } from "react-icons/rx";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
+import { PokemonContext } from "../../contexts/pokemons";
 export const Header = () => {
   const location = useLocation();
   const [activeLink, setActiveLink] = useState("");
   useEffect(() => {
     setActiveLink(location.pathname);
   }, [location.pathname]);
+  const { favorites, pokemons } = useContext(PokemonContext);
+  const data = useMemo(() => {
+    return pokemons.filter((item) => favorites.includes(String(item.data.id)));
+  }, [favorites, pokemons]);
+  const quantityPk = data.length;
   return (
     <header className="header-main">
       <nav className="menu">
@@ -20,7 +26,12 @@ export const Header = () => {
                 activeLink === "/favorites" ? "active" : ""
               }`}
             >
-              <h1>Favoritos</h1>
+              <h1>
+                Favoritos{" "}
+                {quantityPk > 0 && (
+                  <span className="favorites-number">{quantityPk}</span>
+                )}
+              </h1>
             </Link>
             <Link
               to={"/search"}

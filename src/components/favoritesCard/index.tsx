@@ -1,17 +1,18 @@
-import { useContext, useEffect, useMemo } from "react";
+import { useContext, useMemo, useState } from "react";
 import { PokemonContext } from "../../contexts/pokemons";
 import { CardItem } from "../cardPokemon/item";
 import "./index.css";
 import { Link } from "react-router-dom";
+import { ModalDetail } from "../modalDetails";
 
 export const FavoriteCard = () => {
   const { pokemons, favorites } = useContext(PokemonContext);
+  const [pokemonItem, setPokemonItem] = useState<number | undefined>(undefined);
   const data = useMemo(() => {
     return pokemons.filter((item) => favorites.includes(String(item.data.id)));
   }, [favorites, pokemons]);
-  useEffect(() => {
-    console.log(favorites);
-  }, [favorites]);
+  const quantityOfPokemons = data.length;
+  const textPokemon = quantityOfPokemons === 1 ? "pokémon" : "pokémons";
   if (!favorites.length) {
     return (
       <div className="container-favorites">
@@ -28,11 +29,26 @@ export const FavoriteCard = () => {
   }
   return (
     <div>
-      <div>
+      <h1 className="quantity">
+        Olá, você tem {quantityOfPokemons} {textPokemon} salvo
+        {quantityOfPokemons === 1 ? "" : "s"}!
+      </h1>
+      <div className="item-card-favorites">
         {data.map((item) => (
-          <CardItem item={item} key={item.data.id} />
+          <CardItem
+            item={item}
+            setPokemonId={setPokemonItem}
+            key={item.data.id}
+          />
         ))}
       </div>
+      {pokemonItem && (
+        <ModalDetail
+          open={Boolean(pokemonItem)}
+          closeModal={() => setPokemonItem(undefined)}
+          pokemonId={pokemonItem}
+        />
+      )}
     </div>
   );
 };

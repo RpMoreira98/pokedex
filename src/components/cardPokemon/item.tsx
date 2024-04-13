@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Pokemon } from "../../types";
 import { Heart } from "../HeartPokemon";
 import { PokemonType } from "../typePoke";
+import { ModalDetail } from "../modalDetails";
 
 type PropsCardItem = {
   item: Pokemon;
@@ -8,6 +10,7 @@ type PropsCardItem = {
 };
 
 export const CardItem = ({ item, setPokemonId }: PropsCardItem) => {
+  const [openModal, setOpenModal] = useState<number | undefined>(undefined);
   return (
     <div className="card" key={item.data.id}>
       <div className="heart-pokemon">
@@ -33,6 +36,11 @@ export const CardItem = ({ item, setPokemonId }: PropsCardItem) => {
       >
         Ver detalhes
       </button>
+      <ModalDetail
+        open={Boolean(openModal)}
+        closeModal={() => setOpenModal(undefined)}
+        pokemonId={Number(openModal)}
+      />
     </div>
   );
 };

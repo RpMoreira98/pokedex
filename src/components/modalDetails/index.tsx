@@ -112,7 +112,7 @@ export const ModalDetail = ({
             </ul>
             <button
               className={`button-book ${isBookmarked ? "bookmarked" : ""}`}
-              onClick={handleToggleBookmark}
+              onMouseDown={handleToggleBookmark}
             >
               {isBookmarked ? "" : <CiBookmark />}
               {isBookmarked

@@ -50,3 +50,17 @@
   margin-top: 20px;
   cursor: pointer;
 }
+
+.item-card-favorites {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin: 20px 300px 30px 350px;
+}
+
+.quantity {
+  display: flex;
+  margin: 20px 300px 30px 350px;
+  font-family: 'Poppins';
+}
