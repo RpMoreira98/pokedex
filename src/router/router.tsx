@@ -14,7 +14,7 @@ export const router = createBrowserRouter([
     element: <Header />,
     children: [
       {
-        path: "seeall",
+        path: "seeAll",
         element: <SeeAll />,
       },
       {

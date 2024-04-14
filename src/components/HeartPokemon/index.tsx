@@ -26,6 +26,7 @@ export const Heart = ({ id }: { id: string }) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
       localStorage.setItem("favorites", JSON.stringify(favorites));
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [favorites]);
   };
   return (

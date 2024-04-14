@@ -26,7 +26,7 @@ export const ModalDetail = ({
 
   const handleToggleBookmark = () => {
     const newFavorites = [...favorites];
-    const pokemonId = String(pokemon.data.id);
+    const pokemonId = String(pokemon?.data.id);
 
     if (favorites.includes(pokemonId)) {
       const index = favorites.indexOf(pokemonId);
