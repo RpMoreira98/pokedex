@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./index.css";
 import { PokemonContext } from "../../contexts/pokemons";
 import { ProgressBar } from "../progressbar";
@@ -16,11 +16,27 @@ export const ModalDetail = ({
   closeModal,
   pokemonId,
 }: ModalDetailProps) => {
-  const { pokemons } = useContext(PokemonContext);
+  const { pokemons, favorites, setFavorites } = useContext(PokemonContext);
   const pokemon = pokemons.find((item) => item.data.id === pokemonId);
   const [isBookmarked, setIsBookmarked] = useState(false);
+
+  useEffect(() => {
+    setIsBookmarked(favorites.includes(String(pokemonId)));
+  }, [favorites, pokemonId]);
+
   const handleToggleBookmark = () => {
+    const newFavorites = [...favorites];
+    const pokemonId = String(pokemon.data.id);
+
+    if (favorites.includes(pokemonId)) {
+      const index = favorites.indexOf(pokemonId);
+      newFavorites.splice(index, 1);
+    } else {
+      newFavorites.push(pokemonId);
+    }
+    setFavorites(newFavorites);
     setIsBookmarked(!isBookmarked);
+    localStorage.setItem("favorites", JSON.stringify(newFavorites));
   };
   const handleOverlayClick = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -112,7 +128,7 @@ export const ModalDetail = ({
             </ul>
             <button
               className={`button-book ${isBookmarked ? "bookmarked" : ""}`}
-              onMouseDown={handleToggleBookmark}
+              onClick={handleToggleBookmark}
             >
               {isBookmarked ? "" : <CiBookmark />}
               {isBookmarked
