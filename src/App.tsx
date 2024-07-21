@@ -19,7 +19,7 @@ export const Login = () => {
   return (
     <div className="container">
       <div className="login-left">
-        <img src="./public/pokemon.png" alt="" />
+        <img src="./pokemon.png" alt="" />
         <h1>Comece a coletar pokémons!</h1>
         <div>
           <form onSubmit={handleSubmit} className="login-area">
@@ -40,7 +40,7 @@ export const Login = () => {
         </div>
       </div>
       <div className="login-img">
-        <img src="./public/login-area.png" alt="" />
+        <img src="./login-area.png" alt="" />
       </div>
     </div>
   );
